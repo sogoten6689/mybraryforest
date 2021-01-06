@@ -13,6 +13,7 @@ var expressLayouts = require('express-ejs-layouts');
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
+var authorsRouter = require('./routes/authorsRoutes');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -99,6 +100,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/authors', authorsRouter);
 app.route('/login')
 .get((req, res) => res.render('login'))
 .post(passport.authenticate('local', { //chọn phương thức check là local => npm install passport-local
