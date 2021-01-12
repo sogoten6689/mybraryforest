@@ -1,1 +1,7 @@
-Lammm
+<h2>Recently</h2>
+<div>
+    <% books.forEach(book => { %>
+        <img src="<%= book.coverImagePath%>" alt="" width="150" height="100">
+        <div> <%= book.title %></div>
+    <% }) %>
+</div>
