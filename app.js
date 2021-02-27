@@ -11,6 +11,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressLayouts = require('express-ejs-layouts');
 var mongoose = require('mongoose');
+var methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
 var authorsRouter = require('./routes/authorsRoutes');
@@ -33,6 +34,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 //Nếu chưa có body-parser thì tải về bằng câu lệnh: 'npm install body-parser' nhé
